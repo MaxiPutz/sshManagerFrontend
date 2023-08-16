@@ -1,14 +1,14 @@
 Arguments: 
-  /Users/max/.nvm/versions/node/v18.17.0/bin/node /Users/max/.nvm/versions/node/v17.9.1/bin/yarn add uuid
+  /Users/max/.nvm/versions/node/v16.20.2/bin/node /Users/max/.nvm/versions/node/v17.9.1/bin/yarn
 
 PATH: 
-  /Users/max/.nvm/versions/node/v18.17.0/bin:/Users/max/.nvm/versions/node/v17.9.1/bin:/opt/homebrew/bin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Apple/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/Users/max/.nvm/versions/node/v17.9.1/bin:/opt/homebrew/bin
+  /Users/max/.nvm/versions/node/v16.20.2/bin:/Users/max/.nvm/versions/node/v18.17.0/bin:/Users/max/.nvm/versions/node/v18.17.0/bin:/Users/max/.nvm/versions/node/v16.20.2/bin:/Users/max/.nvm/versions/node/v18.17.0/bin:/Users/max/.nvm/versions/node/v17.9.1/bin:/opt/homebrew/bin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Apple/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/Users/max/.nvm/versions/node/v17.9.1/bin:/opt/homebrew/bin
 
 Yarn version: 
   1.22.19
 
 Node version: 
-  18.17.0
+  16.20.2
 
 Platform: 
   darwin arm64
