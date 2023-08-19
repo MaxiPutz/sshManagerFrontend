@@ -52,6 +52,9 @@ function SSHOutput() {
                         "@",
                         sshInfo.IPAddress)));
             }))),
-        output ? output.output : react_1.default.createElement("div", null)));
+        output ? react_1.default.createElement("pre", null,
+            "  ",
+            output.output,
+            " ") : react_1.default.createElement("div", null)));
 }
 exports.SSHOutput = SSHOutput;

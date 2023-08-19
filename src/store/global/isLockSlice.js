@@ -10,7 +10,8 @@ var routeUris;
     routeUris["action"] = "/dashboard";
     routeUris["sshCreate"] = "/sshCreate";
     routeUris["shell"] = "/shell";
-})(routeUris || (exports.routeUris = routeUris = {}));
+    routeUris["xtermShell"] = "/xtermShell";
+})(routeUris = exports.routeUris || (exports.routeUris = {}));
 var initialState = {
     isLook: false,
     route: routeUris.register

@@ -6,10 +6,10 @@ var SSHAction;
     SSHAction["SSHCommand"] = "SSHCommand";
     SSHAction["SSHCopyFileFromRemote"] = "SSHCopyFileFromRemote";
     SSHAction["SSHCopyFileToRemote"] = "SSHCopyFileToRemote";
-})(SSHAction || (exports.SSHAction = SSHAction = {}));
+})(SSHAction = exports.SSHAction || (exports.SSHAction = {}));
 var SSHTarget;
 (function (SSHTarget) {
     SSHTarget["File"] = "File";
     SSHTarget["Folder"] = "Folder";
     SSHTarget["Execute"] = "Execute";
-})(SSHTarget || (exports.SSHTarget = SSHTarget = {}));
+})(SSHTarget = exports.SSHTarget || (exports.SSHTarget = {}));

@@ -41,7 +41,7 @@ export function SSHOutput(): JSX.Element {
             </div>
 
                     {
-                        output ? output.output : <div></div>
+                        output ? <pre>  {output.output} </pre> : <div></div>
                     }
       
         </div>

@@ -11,6 +11,8 @@ import { routeUris, setRoute } from "./store/global/isLockSlice";
 import { SSHActionComponent } from "./components/ssh/sshActions/SSHAction";
 import { SSHOutput } from "./components/ssh/SSHOutput";
 import { SSHDeleteList } from "./components/ssh/SSHDeleteList";
+import { XtermContainer  } from "./components/xtermShell/XtermContainer"
+
 
 import { Shell } from "./components/shell/Shell";
 
@@ -65,12 +67,16 @@ export const MyRouter = (props: {
       window.history.pushState(routeUris.shell, routeUris.shell, routeUris.shell)
       window.history.replaceState(routeUris.shell, routeUris.shell, routeUris.shell)
       return ShellRoute()
+    case (routeUris.xtermShell):
+      window.history.pushState(routeUris.xtermShell, routeUris.xtermShell, routeUris.xtermShell)
+      window.history.replaceState(routeUris.xtermShell, routeUris.xtermShell, routeUris.xtermShell)
+      return XtermShellRoute()
     default:
       window.history.pushState(routeUris.sshCreate, routeUris.sshCreate, routeUris.sshCreate)
       window.history.replaceState(routeUris.sshCreate, routeUris.sshCreate, routeUris.sshCreate)
       return CreateSSHRoute()
   }
-
+ 
   return (
     RegisterRoute()
   )
@@ -133,11 +139,21 @@ function CreateSSHRoute() {
 }
 
 function ShellRoute() {
-    const dispatch = useDispatch()
-    dispatch(setRoute(routeUris.shell))
-    return (
-      <div>
-        <Shell></Shell>
-      </div>
-    )
+  const dispatch = useDispatch()
+  dispatch(setRoute(routeUris.shell))
+  return (
+    <div>
+      <Shell></Shell>
+    </div>
+  )
+}
+
+function XtermShellRoute() {
+  const dispatch = useDispatch()
+  dispatch(setRoute(routeUris.xtermShell))
+  return (
+    <div>
+      <XtermContainer></XtermContainer>
+    </div>
+  )
 }

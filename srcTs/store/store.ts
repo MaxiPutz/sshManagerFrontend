@@ -5,6 +5,8 @@ import {sshExeReducer} from "./sshSlice/sshExeSlice"
 import {sshActionFlowReducer} from "./sshSlice/sshActionFlowSlice"
 import {globalReducer} from "./global/isLockSlice"
 import {shellReducer} from "./shell/shell"
+import {xtermShellReducer} from "./shell/xtermShell"
+
 
 
 export const  store = configureStore ({
@@ -14,6 +16,8 @@ export const  store = configureStore ({
         sshExe: sshExeReducer, //** to be continue */
         sshActionFlow: sshActionFlowReducer,
         shell: shellReducer,
-        global: globalReducer
+        xtermShell: xtermShellReducer,
+        global: globalReducer,
+
     }
 })

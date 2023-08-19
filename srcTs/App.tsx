@@ -56,18 +56,20 @@ function App() {
       alert("somthing went wrong contact the developer!")
     })
 
-  }
+  } 
 
   return (
     <div className="App">
       <ul className="overflow-hidden bg-blue-500 m-0 p-0 list-none">
         <li className={"float-left p-5" + ((selectRoute === routeUris.register) ? " bg-black" : "")}>          <button onClick={() => dispatch(setRoute(routeUris.register))} className="text-white"  >         Register        </button></li>
         <li className={"float-left p-5" + ((selectRoute === routeUris.login) ? " bg-black" : "")}>     <button onClick={() => dispatch(setRoute(routeUris.login))} className="text-white" >     Login                </button></li>
-        <li className={"float-left p-5" + ((selectRoute === routeUris.sshCreate) ? " bg-black" : "")}> <button onClick={() => dispatch(setRoute(routeUris.sshCreate))} className="text-white" > SSH Create                </button></li>
-        <li className={"float-left p-5" + ((selectRoute === routeUris.action) ? " bg-black" : "")}> <button onClick={() => dispatch(setRoute(routeUris.action))} className="text-white" > Dashboard                </button></li>
-        <li className={"float-left p-5" + ((selectRoute === routeUris.shell) ? " bg-black" : "")}> <button onClick={() => dispatch(setRoute(routeUris.shell))} className="text-white" > Shell                </button></li>
+        <li className={"float-left p-5" + ((selectRoute === routeUris.sshCreate) ? " bg-black" : "")}> <button onClick={() => dispatch(setRoute(routeUris.sshCreate))} className="text-white" > SSH Create/Delete                </button></li>
+        <li className={"float-left p-5" + ((selectRoute === routeUris.action) ? " bg-black" : "")}> <button onClick={() => dispatch(setRoute(routeUris.action))} className="text-white" > Batch                 </button></li>
+        {/* <li className={"float-left p-5" + ((selectRoute === routeUris.shell) ? " bg-black" : "")}> <button onClick={() => dispatch(setRoute(routeUris.shell))} className="text-white" > Shell                </button></li> */}
+        <li className={"float-left p-5" + ((selectRoute === routeUris.xtermShell) ? " bg-black" : "")}> <button onClick={() => dispatch(setRoute(routeUris.xtermShell))} className="text-white" > Shell                </button></li>
 
-        {selectUser.Name !== "" ?
+
+        {selectUser.Name !== "" ? 
           (<li className="float-right p-3 text-white"> Logged in as: <span className="text-2xl m-3">
             {/* <button onClick={handleLogout} className="">logout</button>  */}
             <UserSettingButton user={selectUser} handleOption={hanldeOptionVisible}></UserSettingButton>

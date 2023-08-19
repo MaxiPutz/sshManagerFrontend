@@ -36,6 +36,7 @@ var isLockSlice_1 = require("./store/global/isLockSlice");
 var SSHAction_1 = require("./components/ssh/sshActions/SSHAction");
 var SSHOutput_1 = require("./components/ssh/SSHOutput");
 var SSHDeleteList_1 = require("./components/ssh/SSHDeleteList");
+var XtermContainer_1 = require("./components/xtermShell/XtermContainer");
 var Shell_1 = require("./components/shell/Shell");
 exports.router = (0, react_router_dom_1.createBrowserRouter)([
     {
@@ -79,6 +80,10 @@ var MyRouter = function (props) {
             window.history.pushState(isLockSlice_1.routeUris.shell, isLockSlice_1.routeUris.shell, isLockSlice_1.routeUris.shell);
             window.history.replaceState(isLockSlice_1.routeUris.shell, isLockSlice_1.routeUris.shell, isLockSlice_1.routeUris.shell);
             return ShellRoute();
+        case (isLockSlice_1.routeUris.xtermShell):
+            window.history.pushState(isLockSlice_1.routeUris.xtermShell, isLockSlice_1.routeUris.xtermShell, isLockSlice_1.routeUris.xtermShell);
+            window.history.replaceState(isLockSlice_1.routeUris.xtermShell, isLockSlice_1.routeUris.xtermShell, isLockSlice_1.routeUris.xtermShell);
+            return XtermShellRoute();
         default:
             window.history.pushState(isLockSlice_1.routeUris.sshCreate, isLockSlice_1.routeUris.sshCreate, isLockSlice_1.routeUris.sshCreate);
             window.history.replaceState(isLockSlice_1.routeUris.sshCreate, isLockSlice_1.routeUris.sshCreate, isLockSlice_1.routeUris.sshCreate);
@@ -140,4 +145,10 @@ function ShellRoute() {
     dispatch((0, isLockSlice_1.setRoute)(isLockSlice_1.routeUris.shell));
     return (react_1.default.createElement("div", null,
         react_1.default.createElement(Shell_1.Shell, null)));
+}
+function XtermShellRoute() {
+    var dispatch = (0, react_redux_1.useDispatch)();
+    dispatch((0, isLockSlice_1.setRoute)(isLockSlice_1.routeUris.xtermShell));
+    return (react_1.default.createElement("div", null,
+        react_1.default.createElement(XtermContainer_1.XtermContainer, null)));
 }

@@ -14,6 +14,7 @@ import { ConnectionList } from "./ConnectionList"
 let websocket: null | WebSocket
 
 const getWebsocket = (dispatch: Dispatch<any>) => {
+    // throw new Error("xterm will use this socket ./components/shell/Shell.tsx line 17")
     if (websocket) {
         return websocket
     }
@@ -76,7 +77,8 @@ function _Shell(props: {
 
     return (
         <>
-            <ConnectionBar sshInfos={sessions.map(ele => ele.sshInfo)} setSelectedIndex={selectedTab}
+            <ConnectionBar 
+            sshInfos={sessions.map(ele => ele.sshInfo)} setSelectedIndex={selectedTab}
                 handleOutput={function (index: number) { }}
 
                 handleNewConnection={() => undefined}

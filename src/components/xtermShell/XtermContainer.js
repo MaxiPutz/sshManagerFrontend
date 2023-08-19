@@ -23,17 +23,17 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Shell = void 0;
+exports.XtermContainer = exports.getSocket = void 0;
 var react_1 = __importStar(require("react"));
+var XtermConnectionList_1 = require("./XtermConnectionList");
 var Button_1 = require("../basic/Button");
 var react_redux_1 = require("react-redux");
+var xtermShell_1 = require("../../store/shell/xtermShell");
 var serverAdress_1 = require("../../API/serverAdress");
-var shell_1 = require("../../store/shell/shell");
-var ShellSessionComponent_1 = require("./ShellSessionComponent");
-var ConnectionList_1 = require("./ConnectionList");
+var xtermShell_2 = require("../../store/shell/xtermShell");
+var XtermShell_1 = require("./XtermShell");
 var websocket;
-var getWebsocket = function (dispatch) {
-    // throw new Error("xterm will use this socket ./components/shell/Shell.tsx line 17")
+var _getSocket = function (dispatch) {
     if (websocket) {
         return websocket;
     }
@@ -42,42 +42,30 @@ var getWebsocket = function (dispatch) {
         console.log("connection is ssh is open");
     };
     socket.onmessage = function (_msg) {
-        var _a;
         var smsg = JSON.parse(_msg.data);
         console.log(smsg);
-        if (shell_1.isNextDirElementMap.get(smsg.id) ? (_a = shell_1.isNextDirElementMap.get(smsg.id)) === null || _a === void 0 ? void 0 : _a.msg : false) {
-            dispatch((0, shell_1.setIsNextDirElement)({
-                id: smsg.id,
-                msg: false
-            }));
-            dispatch((0, shell_1.setDirElements)({
-                id: smsg.id,
-                msg: smsg.msg.split("\n")
-            }));
-        }
-        else {
-            dispatch((0, shell_1.updateOutput)(smsg));
-        }
+        dispatch((0, xtermShell_2.updateOutput)(smsg));
     };
     console.log("test");
     websocket = socket;
     return websocket;
 };
-function Shell() {
+var getSocket = function () {
+    return websocket;
+};
+exports.getSocket = getSocket;
+function XtermContainer() {
+    var sessions = (0, react_redux_1.useSelector)(xtermShell_1.selectXtermShell.getSessions);
     var dispatch = (0, react_redux_1.useDispatch)();
-    var socket = getWebsocket(dispatch);
-    var sessions = (0, react_redux_1.useSelector)(shell_1.selectShell.getSessions);
-    return (react_1.default.createElement(_Shell, { socket: socket }));
-}
-exports.Shell = Shell;
-function _Shell(props) {
-    var sessions = (0, react_redux_1.useSelector)(shell_1.selectShell.getSessions);
     var _a = (0, react_1.useState)(0), selectedTab = _a[0], setSelectedTab = _a[1];
+    _getSocket(dispatch);
     var handleSelection = function (id) {
         console.log(id);
         setSelectedTab(id);
     };
+    console.log("dere oida");
     return (react_1.default.createElement(react_1.default.Fragment, null,
         react_1.default.createElement(Button_1.ConnectionBar, { sshInfos: sessions.map(function (ele) { return ele.sshInfo; }), setSelectedIndex: selectedTab, handleOutput: function (index) { }, handleNewConnection: function () { return undefined; }, handleSelection: handleSelection }),
-        selectedTab === sessions.length ? react_1.default.createElement(ConnectionList_1.ConnectionList, null) : react_1.default.createElement(ShellSessionComponent_1.ShellSessionComponent, { shellSession: sessions[selectedTab], socket: props.socket })));
+        selectedTab === sessions.length ? react_1.default.createElement(XtermConnectionList_1.XtermConnectionList, null) : react_1.default.createElement(XtermShell_1.XtermShell, { uuid: sessions[selectedTab].UUID })));
 }
+exports.XtermContainer = XtermContainer;

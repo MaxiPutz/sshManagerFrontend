@@ -5,7 +5,8 @@ export enum routeUris {
     register = "/",
     action = "/dashboard",
     sshCreate = "/sshCreate",
-    shell = "/shell"
+    shell = "/shell",
+    xtermShell = "/xtermShell"
 }
 
 const initialState : {
