@@ -46,7 +46,11 @@ function XtermShell(props) {
             msg: data
         });
         console.log("xterm", sendData);
-        socket.send(sendData);
+        if (parseDimensionsFromEscapeCode(data) === null) {
+            console.log("\u001b");
+            console.log(data.includes("\u001b"));
+            socket.send(sendData);
+        }
     });
     (0, react_1.useEffect)(function () {
         output = select.find(function (ele) { return ele.UUID === props.uuid; }).output;
@@ -92,3 +96,15 @@ function XtermShell(props) {
 }
 exports.XtermShell = XtermShell;
 ;
+function parseDimensionsFromEscapeCode(escapeCode) {
+    // Regular expression to match the escape code format
+    var escapeCodeRegex = /^\u001b\[(\d+);(\d+)R$/;
+    var match = escapeCode.match(escapeCodeRegex);
+    if (match) {
+        var rows = parseInt(match[1]);
+        var cols = parseInt(match[2]);
+        console.log("xterm dimentions", rows, cols);
+        return { rows: rows, cols: cols };
+    }
+    return null; // Return null if escape code doesn't match expected format
+}

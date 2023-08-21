@@ -43,7 +43,13 @@ export function XtermShell(props: {
         } as socketMsg)
         console.log("xterm", sendData);
 
-        socket.send(sendData) 
+        if (parseDimensionsFromEscapeCode(data) === null) {
+            console.log("\u001b");
+            console.log(data.includes("\u001b"));
+
+
+            socket.send(sendData)
+        }
     })
 
 
@@ -60,8 +66,8 @@ export function XtermShell(props: {
         console.log("count open", openCount);
         console.log("close count", closeCount);
 
-        
-        
+
+
         if (openCount === 1 && output.length > 3) {
             const sendData = JSON.stringify({
                 id: props.uuid,
@@ -69,7 +75,7 @@ export function XtermShell(props: {
             } as socketMsg)
             console.log("xterm", sendData);
             socket.send(sendData)
-    
+
         }
 
 
@@ -90,7 +96,7 @@ export function XtermShell(props: {
                 const { cols, rows } = term;
                 // socket.send(JSON.stringify({ 'resize': { cols, rows } }))
                 console.log("size", cols, rows);
-                
+
             };
             term.onResize(handleResize);
 
@@ -108,3 +114,21 @@ export function XtermShell(props: {
     </>
 };
 
+
+function parseDimensionsFromEscapeCode(escapeCode: string): { rows: number, cols: number } | null {
+    // Regular expression to match the escape code format
+    const escapeCodeRegex = /^\u001b\[(\d+);(\d+)R$/;
+
+    const match = escapeCode.match(escapeCodeRegex);
+    if (match) {
+        const rows = parseInt(match[1]);
+        const cols = parseInt(match[2]);
+
+        console.log("xterm dimentions", rows, cols);
+
+        return { rows, cols };
+    }
+
+
+    return null; // Return null if escape code doesn't match expected format
+}
