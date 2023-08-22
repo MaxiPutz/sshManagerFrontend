@@ -89,7 +89,7 @@ export function XtermShell(props: {
             console.log("term", term.element);
 
 
-            term.resize(70, 60)
+            term.resize(250, 65)
 
 
             const handleResize = () => {

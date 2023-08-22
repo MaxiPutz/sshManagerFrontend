@@ -76,7 +76,7 @@ function XtermShell(props) {
             term.focus();
             console.log("term", term);
             console.log("term", term.element);
-            term.resize(70, 60);
+            term.resize(250, 65);
             var handleResize = function () {
                 var cols = term.cols, rows = term.rows;
                 // socket.send(JSON.stringify({ 'resize': { cols, rows } }))
