@@ -9,9 +9,14 @@ import { selectGlobal, setIsLock } from "../../store/global/isLockSlice"
 import { addSSH, setSSH } from "../../store/sshSlice/sshSlice"
 
 export function SSHCreate(): JSX.Element {
-    const isLock = useSelector(selectGlobal.getIslook)// todo
-
     const userData: User = useSelector(select.getUser)
+
+    const isLock = useSelector(selectGlobal.getIslook) || userData.Name === "" 
+
+    console.log("isLock", isLock);
+    
+
+    console.log("user", userData)
 
     const dispatch = useDispatch()
 

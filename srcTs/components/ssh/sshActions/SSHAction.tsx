@@ -17,13 +17,15 @@ import { addSSHActionFlow, setSSHActionFlow } from "../../../store/sshSlice/sshA
 
 
 export function SSHActionComponent(): JSX.Element {
-    const isLock = useSelector(selectGlobal.getIslook) // todo
     const saveActionTexFieldRef = useRef<HTMLInputElement>(null)
 
     const dispatch = useDispatch()
 
     const sshInfo = useSelector(select.getSelectedSSH)
     const user = useSelector(selectUser.getUser)
+
+    const isLock = useSelector(selectGlobal.getIslook) || user.Name === ""
+
 
 
     const inputExeInfo = useSelector(selectSSHExe.getSSHExeInfo)

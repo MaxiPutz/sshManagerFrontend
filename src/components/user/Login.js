@@ -123,10 +123,10 @@ function Login() {
         react_1.default.createElement("div", { className: "grid" },
             react_1.default.createElement("h1", { className: "text-3xl font-bold" }, "Login")),
         react_1.default.createElement("div", { className: "relative" },
-            react_1.default.createElement(Button_1.TextField, { inputRef: userRef, isLock: isLock }),
+            react_1.default.createElement(Button_1.TextField, { inputRef: userRef, isLock: isLock, value: "demoUser" }),
             react_1.default.createElement(Button_1.Label, null, "Username:")),
         react_1.default.createElement("div", { className: "relative" },
-            react_1.default.createElement(Button_1.TextField, { inputRef: pwRef, isLock: isLock }),
+            react_1.default.createElement(Button_1.TextField, { inputRef: pwRef, isLock: isLock, value: "demoPw" }),
             react_1.default.createElement(Button_1.Label, null, "Password:")),
         react_1.default.createElement("div", { className: "flex w-full justify-center mt-3 mb-3" },
             react_1.default.createElement(Button_1.Button, { className: "w-2/3", isLock: isLock, onClick: handleLogin }, "login "))));

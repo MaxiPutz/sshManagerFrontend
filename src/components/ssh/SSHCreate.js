@@ -81,8 +81,10 @@ var isLockSlice_1 = require("../../store/global/isLockSlice");
 var sshSlice_1 = require("../../store/sshSlice/sshSlice");
 function SSHCreate() {
     var _this = this;
-    var isLock = (0, react_redux_1.useSelector)(isLockSlice_1.selectGlobal.getIslook); // todo
     var userData = (0, react_redux_1.useSelector)(userSlice_1.select.getUser);
+    var isLock = (0, react_redux_1.useSelector)(isLockSlice_1.selectGlobal.getIslook) || userData.Name === "";
+    console.log("isLock", isLock);
+    console.log("user", userData);
     var dispatch = (0, react_redux_1.useDispatch)();
     var ipRef = (0, react_1.useRef)(null);
     var pwRef = (0, react_1.useRef)(null);

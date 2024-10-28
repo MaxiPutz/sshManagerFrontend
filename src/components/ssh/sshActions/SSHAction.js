@@ -75,11 +75,11 @@ var isLockSlice_1 = require("../../../store/global/isLockSlice");
 var sshActionFlowSlice_1 = require("../../../store/sshSlice/sshActionFlowSlice");
 function SSHActionComponent() {
     var _this = this;
-    var isLock = (0, react_redux_1.useSelector)(isLockSlice_1.selectGlobal.getIslook); // todo
     var saveActionTexFieldRef = (0, react_1.useRef)(null);
     var dispatch = (0, react_redux_1.useDispatch)();
     var sshInfo = (0, react_redux_1.useSelector)(sshSlice_1.select.getSelectedSSH);
     var user = (0, react_redux_1.useSelector)(userSlice_1.select.getUser);
+    var isLock = (0, react_redux_1.useSelector)(isLockSlice_1.selectGlobal.getIslook) || user.Name === "";
     var inputExeInfo = (0, react_redux_1.useSelector)(sshExeSlice_1.selectSSHExe.getSSHExeInfo);
     var saveHandler = function () { return __awaiter(_this, void 0, void 0, function () {
         var res, json, error_1;

@@ -77,12 +77,12 @@ export function Login(): JSX.Element {
                 <h1 className="text-3xl font-bold">Login</h1>
             </div>
             <div className="relative" >
-                <TextField inputRef={userRef} isLock={isLock} ></TextField>
+                <TextField inputRef={userRef} isLock={isLock} value="demoUser" ></TextField>
                 <Label>Username:</Label>
             </div>
 
             <div className="relative">
-                <TextField inputRef={pwRef} isLock={isLock} ></TextField>
+                <TextField inputRef={pwRef} isLock={isLock} value="demoPw" ></TextField>
                 <Label>Password:</Label>
             </div>
 
